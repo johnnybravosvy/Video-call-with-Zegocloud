@@ -5,6 +5,8 @@ import { useParams } from 'react-router-dom';
 const VideoComp = () => {
     const { roomID } = useParams();
 
+    const Api_key = import.meta.env.VITE_Zegoserver;
+
     const containerRef = useRef(null);
 
     useEffect(() => {
@@ -13,7 +15,7 @@ const VideoComp = () => {
 
             // generate Kit Token
             const appID = 1013921251;
-            const serverSecret = "0e101b3d514add9e13ac10a25db6876c";
+            const serverSecret = Api_key;
             const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID, Date.now().toString(), "Anonymous",);
 
 
